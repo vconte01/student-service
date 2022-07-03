@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: student-service
+
+  datasource:
+    username: "root"
+    password: "password"
+    url: "jdbc:mysql://localhost:3307/micro_db"
+    driverClassName: "com.mysql.jdbc.Driver"
+
+  jpa:
+    show-sql: true
+    database-platform: "org.hibernate.dialect.MySQL8Dialect"
+
+  cloud:
+    config:
+      uri: http://localhost:8888
+      label: main
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:7001/realms/micro_realm/protocol/openid-connect/certs
+          issuer-uri: http://localhost:7001/realms/micro_realm
+
+#Server Port
+server:
+  port: 8081
+
+#Logging
+logging:
+  file:
+    name: 'c:\prova\student.log'
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+
+#Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+info:
+  app:
+    version: '@version@'
+    name: '@description'
+    description: Esempio di Spring Boot Actuator
+  author:
+    website: https://linksmt.it
+    name: Vincenzo
+    surname: Conte
+
+
+
+
+
+
