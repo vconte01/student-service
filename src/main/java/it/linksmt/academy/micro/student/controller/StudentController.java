@@ -26,8 +26,6 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @Value( "${env}")
-    private String env;
 
     Logger logger = LoggerFactory.getLogger(StudentController.class);
 
@@ -35,7 +33,7 @@ public class StudentController {
     @Operation( summary = " List all Students")
     public ResponseEntity<List<Student>> getStudents() {
 
-        logger.info("Get all Students" +env);
+        logger.info("Get all Students");
 
         return ResponseEntity.ok(studentService.getAll());
 

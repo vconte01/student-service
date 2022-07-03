@@ -12,17 +12,6 @@ spring:
     show-sql: true
     database-platform: "org.hibernate.dialect.MySQL8Dialect"
 
-  cloud:
-    config:
-      uri: http://localhost:8888
-      label: main
-
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:7001/realms/micro_realm/protocol/openid-connect/certs
-          issuer-uri: http://localhost:7001/realms/micro_realm
 
 #Server Port
 server:
